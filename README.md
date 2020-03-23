@@ -8,7 +8,7 @@ sijie-mall 项目是一套电商系统，包括 sijie-mall 商城系统及 sijie
 
 **坚持不易，如果觉得项目还不错的话可以给项目一个 Star 吧，也是对我一直更新代码的一种鼓励啦，谢谢各位的支持。**
 
-![newbee-mall-info](https://images.gitee.com/uploads/images/2019/1106/173406_b467c1c8_5249807.png)
+![image](https://github.com/Polaristing/sijie-mall/blob/bugfix-sijiemall-1001/img/sijie.png)
 
 - sijie-mall 对新手开发者十分友好，无需复杂的操作步骤，**仅需 2 秒就可以启动这个完整的商城项目；**
 - sijie-mall **也是一个企业级别的 Spring Boot 大型项目，对于各个阶段的 Java 开发者都是极佳的选择；**
