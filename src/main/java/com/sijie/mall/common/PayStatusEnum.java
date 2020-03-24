@@ -3,7 +3,7 @@ package com.sijie.mall.common;
 /**
  * @author 13
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  * @apiNote 订单状态:0.支付中 1.支付成功 -1.支付失败
  */

@@ -1,7 +1,7 @@
 package com.sijie.mall.controller.common;
 
 import com.sijie.mall.common.Constants;
-import com.sijie.mall.util.NewBeeMallUtils;
+import com.sijie.mall.util.SiJieMallUtils;
 import com.sijie.mall.util.Result;
 import com.sijie.mall.util.ResultGenerator;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ import java.util.Random;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  */
 @Controller
@@ -52,7 +52,7 @@ public class UploadController {
             }
             file.transferTo(destFile);
             Result resultSuccess = ResultGenerator.genSuccessResult();
-            resultSuccess.setData(NewBeeMallUtils.getHost(new URI(httpServletRequest.getRequestURL() + "")) + "/upload/" + newFileName);
+            resultSuccess.setData(SiJieMallUtils.getHost(new URI(httpServletRequest.getRequestURL() + "")) + "/upload/" + newFileName);
             return resultSuccess;
         } catch (IOException e) {
             e.printStackTrace();

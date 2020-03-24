@@ -3,7 +3,7 @@ package com.sijie.mall.common;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  * @apiNote 首页配置项 1-搜索框热搜 2-搜索下拉框热搜 3-(首页)热销商品 4-(首页)新品上线 5-(首页)为你推荐
  */

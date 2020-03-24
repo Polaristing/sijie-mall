@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('NewBee商城-订单列表','my-orders')">
+<head th:replace="mall/header::head-fragment('SiJie商城-订单列表','my-orders')">
 </head>
 <body>
 <header th:replace="mall/header::header-fragment"></header>
@@ -66,7 +66,7 @@
                                                     <td class="order-items">
                                                         <ul class="goods-list">
                                                             <th:block
-                                                                    th:each="item : ${order.newBeeMallOrderItemVOS}">
+                                                                    th:each="item : ${order.siJieMallOrderItemVOS}">
                                                                 <li>
                                                                     <div class="figure figure-thumb">
                                                                         <a target="_blank"

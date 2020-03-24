@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  * @apiNote 首页分类数据VO(第二级)
  */

@@ -3,7 +3,7 @@ package com.sijie.mall.common;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  * @apiNote 常量配置
  */
@@ -61,7 +61,7 @@ public class Constants {
     /**
      * session中user的key
      */
-    public final static String MALL_USER_SESSION_KEY = "newBeeMallUser";
+    public final static String MALL_USER_SESSION_KEY = "siJieMallUser";
 
     /**
      * 搜索分页的默认条数(每页10条)

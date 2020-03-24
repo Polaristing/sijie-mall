@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.NewBeeMallGoodsMapper">
-    <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.NewBeeMallGoods">
+<mapper namespace="com.sijie.mall.dao.SiJieMallGoodsMapper">
+    <resultMap id="BaseResultMap" type="com.sijie.mall.entity.SiJieMallGoods">
         <id column="goods_id" jdbcType="BIGINT" property="goodsId"/>
         <result column="goods_name" jdbcType="VARCHAR" property="goodsName"/>
         <result column="goods_intro" jdbcType="VARCHAR" property="goodsIntro"/>
@@ -18,7 +18,7 @@
         <result column="update_user" jdbcType="INTEGER" property="updateUser"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
     </resultMap>
-    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="ltd.newbee.mall.entity.NewBeeMallGoods">
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sijie.mall.entity.SiJieMallGoods">
         <result column="goods_detail_content" jdbcType="LONGVARCHAR" property="goodsDetailContent"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -36,7 +36,7 @@
         goods_detail_content,original_price,
         selling_price, stock_num)
         VALUES
-        <foreach collection="newBeeMallGoodsList" item="goods" separator=",">
+        <foreach collection="siJieMallGoodsList" item="goods" separator=",">
             (#{goods.goodsName},#{goods.goodsIntro},#{goods.goodsCategoryId},#{goods.goodsCoverImg},#{goods.goodsCarousel},#{goods.goodsDetailContent},#{goods.originalPrice},#{goods.sellingPrice},#{goods.stockNum})
         </foreach>
     </insert>
@@ -61,7 +61,7 @@
             #{id}
         </foreach>
     </update>
-    <select id="findNewBeeMallGoodsList" parameterType="Map" resultMap="BaseResultMap">
+    <select id="findSiJieMallGoodsList" parameterType="Map" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from tb_newbee_mall_goods_info
@@ -85,7 +85,7 @@
         </if>
     </select>
 
-    <select id="findNewBeeMallGoodsListBySearch" parameterType="Map" resultMap="BaseResultMap">
+    <select id="findSiJieMallGoodsListBySearch" parameterType="Map" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from tb_newbee_mall_goods_info
@@ -118,7 +118,7 @@
         </if>
     </select>
 
-    <select id="getTotalNewBeeMallGoodsBySearch" parameterType="Map" resultType="int">
+    <select id="getTotalSiJieMallGoodsBySearch" parameterType="Map" resultType="int">
         select count(*) from tb_newbee_mall_goods_info
         <where>
             <if test="keyword!=null and keyword!=''">
@@ -144,7 +144,7 @@
         </foreach>
         );
     </select>
-    <select id="getTotalNewBeeMallGoods" parameterType="Map" resultType="int">
+    <select id="getTotalSiJieMallGoods" parameterType="Map" resultType="int">
         select count(*) from tb_newbee_mall_goods_info
         <where>
             <if test="goodsName!=null and goodsName!=''">
@@ -165,7 +165,7 @@
     delete from tb_newbee_mall_goods_info
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </delete>
-    <insert id="insert" parameterType="ltd.newbee.mall.entity.NewBeeMallGoods">
+    <insert id="insert" parameterType="com.sijie.mall.entity.SiJieMallGoods">
     insert into tb_newbee_mall_goods_info (goods_id, goods_name, goods_intro, 
       goods_cover_img, goods_carousel, original_price, 
       selling_price, stock_num, tag, 
@@ -179,7 +179,7 @@
       #{updateUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{goodsDetailContent,jdbcType=LONGVARCHAR}
       )
   </insert>
-    <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.NewBeeMallGoods">
+    <insert id="insertSelective" parameterType="com.sijie.mall.entity.SiJieMallGoods">
         insert into tb_newbee_mall_goods_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="goodsId != null">
@@ -282,7 +282,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.NewBeeMallGoods">
+    <update id="updateByPrimaryKeySelective" parameterType="com.sijie.mall.entity.SiJieMallGoods">
         update tb_newbee_mall_goods_info
         <set>
             <if test="goodsName != null">
@@ -333,7 +333,7 @@
         </set>
         where goods_id = #{goodsId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs" parameterType="ltd.newbee.mall.entity.NewBeeMallGoods">
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sijie.mall.entity.SiJieMallGoods">
     update tb_newbee_mall_goods_info
     set goods_name = #{goodsName,jdbcType=VARCHAR},
       goods_intro = #{goodsIntro,jdbcType=VARCHAR},
@@ -351,7 +351,7 @@
       goods_detail_content = #{goodsDetailContent,jdbcType=LONGVARCHAR}
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
-    <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.NewBeeMallGoods">
+    <update id="updateByPrimaryKey" parameterType="com.sijie.mall.entity.SiJieMallGoods">
     update tb_newbee_mall_goods_info
     set goods_name = #{goodsName,jdbcType=VARCHAR},
       goods_intro = #{goodsIntro,jdbcType=VARCHAR},

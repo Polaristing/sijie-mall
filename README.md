@@ -34,7 +34,7 @@ sijie-mall 项目是一套电商系统，包括 sijie-mall 商城系统及 sijie
 
 > 大家有任何问题或者建议都可以在 [issues](https://https://github.com/Polaristing/sijie-mall/issues) 中反馈给我，我会慢慢完善这个项目。
 
-- 我的邮箱：1172895463@qq.com
+- 我的邮箱：gting0518@163.com
 - QQ技术交流群：1060125975
 
 ## 页面展示

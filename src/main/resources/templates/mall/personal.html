@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('NewBee商城-个人中心','personal')">
+<head th:replace="mall/header::head-fragment('SiJie商城-个人中心','personal')">
 </head>
 <link th:href="@{/mall/css/bootstrap-modal.css}" rel="stylesheet">
 <body>
@@ -20,18 +20,18 @@
                                              style="color:#1baeae;margin-left: 600px;">更改个人信息</a>
             </div>
             <div class="info_item ml40"><span>昵称</span><span
-                    th:text="${session.newBeeMallUser.nickName}">newbee-mall</span>
+                    th:text="${session.siJieMallUser.nickName}">newbee-mall</span>
             </div>
             <div class="info_item ml40"><span>手机号</span><span
-                    th:text="${session.newBeeMallUser.loginName}">newbee-mall</span>
+                    th:text="${session.siJieMallUser.loginName}">newbee-mall</span>
             </div>
             <div class="info_item ml40"><span>密码</span><span>******</span>
             </div>
             <div class="info_item ml40"><span>个性签名</span><span
-                    th:text="${session.newBeeMallUser.introduceSign==''?'无':session.newBeeMallUser.introduceSign}">newbee-mall</span>
+                    th:text="${session.siJieMallUser.introduceSign==''?'无':session.siJieMallUser.introduceSign}">newbee-mall</span>
             </div>
             <div class="info_item ml40"><span>收货信息</span><span
-                    th:text="${session.newBeeMallUser.address==''?'无':session.newBeeMallUser.address}">newbee-mall</span></span>
+                    th:text="${session.siJieMallUser.address==''?'无':session.siJieMallUser.address}">newbee-mall</span></span>
             </div>
 
         </div>
@@ -52,21 +52,21 @@
                         <form id="personalInfoForm">
                             <div class="form-group">
                                 <label for="nickName" class="control-label">昵称:</label>
-                                <input type="hidden" id="userId" th:value="${session.newBeeMallUser.userId}">
+                                <input type="hidden" id="userId" th:value="${session.siJieMallUser.userId}">
                                 <input type="text" class="form-control" id="nickName" name="nickName"
-                                       placeholder="请输入昵称" th:value="${session.newBeeMallUser.nickName}"
+                                       placeholder="请输入昵称" th:value="${session.siJieMallUser.nickName}"
                                        required="true">
                             </div>
                             <div class="form-group">
                                 <label for="introduceSign" class="control-label">个性签名:</label>
                                 <input type="text" class="form-control" id="introduceSign" name="introduceSign"
-                                       placeholder="请输入个性签名" th:value="${session.newBeeMallUser.introduceSign}"
+                                       placeholder="请输入个性签名" th:value="${session.siJieMallUser.introduceSign}"
                                        required="true">
                             </div>
                             <div class="form-group">
                                 <label for="address" class="control-label">收货信息:</label>
                                 <input type="text" class="form-control" id="address" name="address"
-                                       placeholder="请输入收货信息" th:value="${session.newBeeMallUser.address}"
+                                       placeholder="请输入收货信息" th:value="${session.siJieMallUser.address}"
                                        required="true">
                             </div>
                         </form>

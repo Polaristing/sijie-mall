@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sijie.mall.dao.NewBeeMallOrderItemMapper">
-    <resultMap id="BaseResultMap" type="com.sijie.mall.entity.NewBeeMallOrderItem">
+<mapper namespace="com.sijie.mall.dao.SiJieMallOrderItemMapper">
+    <resultMap id="BaseResultMap" type="com.sijie.mall.entity.SiJieMallOrderItem">
         <id column="order_item_id" jdbcType="BIGINT" property="orderItemId"/>
         <result column="order_id" jdbcType="BIGINT" property="orderId"/>
         <result column="goods_id" jdbcType="BIGINT" property="goodsId"/>
@@ -41,7 +41,7 @@
     delete from tb_newbee_mall_order_item
     where order_item_id = #{orderItemId,jdbcType=BIGINT}
   </delete>
-    <insert id="insertBatch" parameterType="com.sijie.mall.entity.NewBeeMallOrderItem">
+    <insert id="insertBatch" parameterType="com.sijie.mall.entity.SiJieMallOrderItem">
         insert into tb_newbee_mall_order_item (order_id, goods_id,
         goods_name, goods_cover_img, selling_price,
         goods_count)
@@ -53,7 +53,7 @@
             #{orderItem.goodsCount,jdbcType=INTEGER})
         </foreach>
     </insert>
-    <insert id="insert" parameterType="com.sijie.mall.entity.NewBeeMallOrderItem">
+    <insert id="insert" parameterType="com.sijie.mall.entity.SiJieMallOrderItem">
     insert into tb_newbee_mall_order_item (order_item_id, order_id, goods_id,
       goods_name, goods_cover_img, selling_price,
       goods_count, create_time)
@@ -61,7 +61,7 @@
       #{goodsName,jdbcType=VARCHAR}, #{goodsCoverImg,jdbcType=VARCHAR}, #{sellingPrice,jdbcType=INTEGER},
       #{goodsCount,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-    <insert id="insertSelective" parameterType="com.sijie.mall.entity.NewBeeMallOrderItem">
+    <insert id="insertSelective" parameterType="com.sijie.mall.entity.SiJieMallOrderItem">
         insert into tb_newbee_mall_order_item
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="orderItemId != null">
@@ -116,7 +116,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.sijie.mall.entity.NewBeeMallOrderItem">
+    <update id="updateByPrimaryKeySelective" parameterType="com.sijie.mall.entity.SiJieMallOrderItem">
         update tb_newbee_mall_order_item
         <set>
             <if test="orderId != null">
@@ -143,7 +143,7 @@
         </set>
         where order_item_id = #{orderItemId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.sijie.mall.entity.NewBeeMallOrderItem">
+    <update id="updateByPrimaryKey" parameterType="com.sijie.mall.entity.SiJieMallOrderItem">
     update tb_newbee_mall_order_item
     set order_id = #{orderId,jdbcType=BIGINT},
       goods_id = #{goodsId,jdbcType=BIGINT},

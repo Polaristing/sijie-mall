@@ -2,9 +2,9 @@ package com.sijie.mall.controller.mall;
 
 import com.sijie.mall.common.Constants;
 import com.sijie.mall.common.ServiceResultEnum;
-import com.sijie.mall.controller.vo.NewBeeMallUserVO;
+import com.sijie.mall.controller.vo.SiJieMallUserVO;
 import com.sijie.mall.entity.MallUser;
-import com.sijie.mall.service.NewBeeMallUserService;
+import com.sijie.mall.service.SiJieMallUserService;
 import com.sijie.mall.util.MD5Util;
 import com.sijie.mall.util.Result;
 import com.sijie.mall.util.ResultGenerator;
@@ -19,14 +19,14 @@ import javax.servlet.http.HttpSession;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  */
 @Controller
 public class PersonalController {
 
     @Resource
-    private NewBeeMallUserService newBeeMallUserService;
+    private SiJieMallUserService siJieMallUserService;
 
     @GetMapping("/personal")
     public String personalPage(HttpServletRequest request,
@@ -76,7 +76,7 @@ public class PersonalController {
             return ResultGenerator.genFailResult(ServiceResultEnum.LOGIN_VERIFY_CODE_ERROR.getResult());
         }
         //todo 清verifyCode
-        String loginResult = newBeeMallUserService.login(loginName, MD5Util.MD5Encode(password, "UTF-8"), httpSession);
+        String loginResult = siJieMallUserService.login(loginName, MD5Util.MD5Encode(password, "UTF-8"), httpSession);
         //登录成功
         if (ServiceResultEnum.SUCCESS.getResult().equals(loginResult)) {
             return ResultGenerator.genSuccessResult();
@@ -105,7 +105,7 @@ public class PersonalController {
             return ResultGenerator.genFailResult(ServiceResultEnum.LOGIN_VERIFY_CODE_ERROR.getResult());
         }
         //todo 清verifyCode
-        String registerResult = newBeeMallUserService.register(loginName, password);
+        String registerResult = siJieMallUserService.register(loginName, password);
         //注册成功
         if (ServiceResultEnum.SUCCESS.getResult().equals(registerResult)) {
             return ResultGenerator.genSuccessResult();
@@ -117,7 +117,7 @@ public class PersonalController {
     @PostMapping("/personal/updateInfo")
     @ResponseBody
     public Result updateInfo(@RequestBody MallUser mallUser, HttpSession httpSession) {
-        NewBeeMallUserVO mallUserTemp = newBeeMallUserService.updateUserInfo(mallUser, httpSession);
+        SiJieMallUserVO mallUserTemp = siJieMallUserService.updateUserInfo(mallUser, httpSession);
         if (mallUserTemp == null) {
             Result result = ResultGenerator.genFailResult("修改失败");
             return result;

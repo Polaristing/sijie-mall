@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  */
 public class NumberUtil {

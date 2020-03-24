@@ -18,7 +18,7 @@ import java.util.Properties;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  */
 @Controller
@@ -54,7 +54,7 @@ public class CommonController {
 
     @GetMapping("/common/mall/kaptcha")
     public void mallKaptcha(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
-        com.google.code.kaptcha.impl.DefaultKaptcha newBeeMallLoginKaptcha = new com.google.code.kaptcha.impl.DefaultKaptcha();
+        com.google.code.kaptcha.impl.DefaultKaptcha siJieMallLoginKaptcha = new com.google.code.kaptcha.impl.DefaultKaptcha();
         Properties properties = new Properties();
         properties.put("kaptcha.border", "no");
         properties.put("kaptcha.textproducer.font.color", "27,174,171");
@@ -66,14 +66,14 @@ public class CommonController {
         properties.put("kaptcha.textproducer.char.space", "2");
         properties.put("kaptcha.textproducer.char.length", "6");
         Config config = new Config(properties);
-        newBeeMallLoginKaptcha.setConfig(config);
+        siJieMallLoginKaptcha.setConfig(config);
         byte[] captchaOutputStream = null;
         ByteArrayOutputStream imgOutputStream = new ByteArrayOutputStream();
         try {
             //生产验证码字符串并保存到session中
-            String verifyCode = newBeeMallLoginKaptcha.createText();
+            String verifyCode = siJieMallLoginKaptcha.createText();
             httpServletRequest.getSession().setAttribute(Constants.MALL_VERIFY_CODE_KEY, verifyCode);
-            BufferedImage challenge = newBeeMallLoginKaptcha.createImage(verifyCode);
+            BufferedImage challenge = siJieMallLoginKaptcha.createImage(verifyCode);
             ImageIO.write(challenge, "jpg", imgOutputStream);
         } catch (IllegalArgumentException e) {
             httpServletResponse.sendError(HttpServletResponse.SC_NOT_FOUND);

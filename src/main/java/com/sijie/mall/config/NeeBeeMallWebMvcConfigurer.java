@@ -2,8 +2,8 @@ package com.sijie.mall.config;
 
 import com.sijie.mall.common.Constants;
 import com.sijie.mall.interceptor.AdminLoginInterceptor;
-import com.sijie.mall.interceptor.NewBeeMallCartNumberInterceptor;
-import com.sijie.mall.interceptor.NewBeeMallLoginInterceptor;
+import com.sijie.mall.interceptor.SiJieMallCartNumberInterceptor;
+import com.sijie.mall.interceptor.SiJieMallLoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  */
 @Configuration
@@ -22,9 +22,9 @@ public class NeeBeeMallWebMvcConfigurer implements WebMvcConfigurer {
     @Autowired
     private AdminLoginInterceptor adminLoginInterceptor;
     @Autowired
-    private NewBeeMallLoginInterceptor newBeeMallLoginInterceptor;
+    private SiJieMallLoginInterceptor siJieMallLoginInterceptor;
     @Autowired
-    private NewBeeMallCartNumberInterceptor newBeeMallCartNumberInterceptor;
+    private SiJieMallCartNumberInterceptor siJieMallCartNumberInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -35,13 +35,13 @@ public class NeeBeeMallWebMvcConfigurer implements WebMvcConfigurer {
                 .excludePathPatterns("/admin/dist/**")
                 .excludePathPatterns("/admin/plugins/**");
         // 购物车中的数量统一处理
-        registry.addInterceptor(newBeeMallCartNumberInterceptor)
+        registry.addInterceptor(siJieMallCartNumberInterceptor)
                 .excludePathPatterns("/admin/**")
                 .excludePathPatterns("/register")
                 .excludePathPatterns("/login")
                 .excludePathPatterns("/logout");
         // 商城页面登陆拦截
-        registry.addInterceptor(newBeeMallLoginInterceptor)
+        registry.addInterceptor(siJieMallLoginInterceptor)
                 .excludePathPatterns("/admin/**")
                 .excludePathPatterns("/register")
                 .excludePathPatterns("/login")

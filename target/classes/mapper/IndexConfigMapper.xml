@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.IndexConfigMapper">
-    <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.IndexConfig">
+<mapper namespace="com.sijie.mall.dao.IndexConfigMapper">
+    <resultMap id="BaseResultMap" type="com.sijie.mall.entity.IndexConfig">
         <id column="config_id" jdbcType="BIGINT" property="configId"/>
         <result column="config_name" jdbcType="VARCHAR" property="configName"/>
         <result column="config_type" jdbcType="TINYINT" property="configType"/>
@@ -68,7 +68,7 @@
             #{id}
         </foreach>
     </update>
-    <insert id="insert" parameterType="ltd.newbee.mall.entity.IndexConfig">
+    <insert id="insert" parameterType="com.sijie.mall.entity.IndexConfig">
     insert into tb_newbee_mall_index_config (config_id, config_name, config_type, 
       goods_id, redirect_url, config_rank, 
       is_deleted, create_time, create_user, 
@@ -78,7 +78,7 @@
       #{isDeleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=INTEGER}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{updateUser,jdbcType=INTEGER})
   </insert>
-    <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.IndexConfig">
+    <insert id="insertSelective" parameterType="com.sijie.mall.entity.IndexConfig">
         insert into tb_newbee_mall_index_config
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="configId != null">
@@ -151,7 +151,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.IndexConfig">
+    <update id="updateByPrimaryKeySelective" parameterType="com.sijie.mall.entity.IndexConfig">
         update tb_newbee_mall_index_config
         <set>
             <if test="configName != null">
@@ -187,7 +187,7 @@
         </set>
         where config_id = #{configId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.IndexConfig">
+    <update id="updateByPrimaryKey" parameterType="com.sijie.mall.entity.IndexConfig">
     update tb_newbee_mall_index_config
     set config_name = #{configName,jdbcType=VARCHAR},
       config_type = #{configType,jdbcType=TINYINT},

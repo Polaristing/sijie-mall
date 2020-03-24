@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head-fragment(title,path)">
     <meta charset="UTF-8">
-    <title>新蜂商城 NewBee商城 newbee-mall</title>
+    <title>新蜂商城 SiJie商城 newbee-mall</title>
     <link rel="stylesheet" th:href="@{/mall/css/swiper.min.css}">
     <link rel="stylesheet" th:href="@{/mall/css/iconfont.css}">
     <link rel="stylesheet" th:href="@{/mall/css/common.css}">
@@ -36,14 +36,14 @@
             <li><a th:href="@{/index}">新蜂商城</a></li>
             <li><a th:href="@{/admin}">后台管理系统</a></li>
             <li><a href="https://edu.csdn.net/course/detail/26258">课程视频</a></li>
-            <a href="https://juejin.im/book/5da2f9d4f265da5b81794d48?referrer=59199e22a22b9d0058279886">课程文档</a>
+            <li><a href="https://juejin.im/book/5da2f9d4f265da5b81794d48?referrer=59199e22a22b9d0058279886">课程文档</a></li>
             <li><a href="https://gitee.com/newbee-ltd/newbee-donate">捐赠</a></li>
             <li><a href="https://www.xiayuan52.cn/newbee-mall/issues">问题反馈</a></li>
             <li><a href="https://www.xiayuan52.cn/newbee-mall">GitHub 地址</a></li>
             <li><a href="https://gitee.com/newbee-ltd/newbee-mall">码云Gitee 地址</a></li>
         </ul>
         <div class="fr">
-            <th:block th:unless="${session.newBeeMallUser==null}">
+            <th:block th:unless="${session.siJieMallUser==null}">
                 <div class="user">
                     <ul class="selector">
                         <li>
@@ -63,18 +63,18 @@
                         </li>
                     </ul>
                     <a href="##" class="username">
-                        <th:block th:text="${session.newBeeMallUser.nickName}"></th:block>
+                        <th:block th:text="${session.siJieMallUser.nickName}"></th:block>
                         <i class="iconfont icon-down"></i>
                     </a>
                 </div>
                 <div class="shopcart">
                     <a th:href="@{/shop-cart}" style="color: white;"><i class="iconfont icon-cart"></i>
                         购物车(
-                        <th:block th:text="${session.newBeeMallUser.shopCartItemCount}"></th:block>
+                        <th:block th:text="${session.siJieMallUser.shopCartItemCount}"></th:block>
                         )</a>
                 </div>
             </th:block>
-            <th:block th:if="${session.newBeeMallUser==null}">
+            <th:block th:if="${session.siJieMallUser==null}">
                 <ul class="login">
                     <li><a th:href="@{/login}">登录</a></li>
                     <li><a th:href="@{/register}">注册</a></li>

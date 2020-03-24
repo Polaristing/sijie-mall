@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="mall/header::head-fragment('NewBee商城-订单结算','order-detail')">
+<head th:replace="mall/header::head-fragment('SiJie商城-订单结算','order-detail')">
 </head>
 <link th:href="@{/mall/css/bootstrap-modal.css}" rel="stylesheet">
 <body>
@@ -92,7 +92,7 @@
                                     <tr>
                                         <th>收货地址：</th>
                                         <td class="user_address_label"
-                                            th:text="${session.newBeeMallUser.address==''?'无':session.newBeeMallUser.address}">
+                                            th:text="${session.siJieMallUser.address==''?'无':session.siJieMallUser.address}">
                                             newbee
                                         </td>
                                     </tr>
@@ -152,10 +152,10 @@
                     <div class="modal-body">
                         <form id="personalInfoForm">
                             <div class="form-group">
-                                <input type="hidden" id="userId" th:value="${session.newBeeMallUser.userId}">
+                                <input type="hidden" id="userId" th:value="${session.siJieMallUser.userId}">
                                 <label for="address" class="control-label">收货地址:</label>
                                 <input type="text" class="form-control" id="address" name="address"
-                                       placeholder="请输入收货地址" th:value="${session.newBeeMallUser.address}"
+                                       placeholder="请输入收货地址" th:value="${session.siJieMallUser.address}"
                                        required="true">
                             </div>
                         </form>

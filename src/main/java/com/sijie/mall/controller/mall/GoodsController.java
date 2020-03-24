@@ -1,11 +1,11 @@
 package com.sijie.mall.controller.mall;
 
 import com.sijie.mall.common.Constants;
-import com.sijie.mall.controller.vo.NewBeeMallGoodsDetailVO;
+import com.sijie.mall.controller.vo.SiJieMallGoodsDetailVO;
 import com.sijie.mall.controller.vo.SearchPageCategoryVO;
-import com.sijie.mall.entity.NewBeeMallGoods;
-import com.sijie.mall.service.NewBeeMallCategoryService;
-import com.sijie.mall.service.NewBeeMallGoodsService;
+import com.sijie.mall.entity.SiJieMallGoods;
+import com.sijie.mall.service.SiJieMallCategoryService;
+import com.sijie.mall.service.SiJieMallGoodsService;
 import com.sijie.mall.util.BeanUtil;
 import com.sijie.mall.util.PageQueryUtil;
 import org.springframework.stereotype.Controller;
@@ -21,16 +21,16 @@ import java.util.Map;
 /**
  * @author Kim
  * @联系QQ 1172895463
- * @email 1172895463@qq.com
+ * @email gting0518@163.com
  * @link https://www.xiayuan52.cn
  */
 @Controller
 public class GoodsController {
 
     @Resource
-    private NewBeeMallGoodsService newBeeMallGoodsService;
+    private SiJieMallGoodsService siJieMallGoodsService;
     @Resource
-    private NewBeeMallCategoryService newBeeMallCategoryService;
+    private SiJieMallCategoryService siJieMallCategoryService;
 
     @GetMapping({"/search", "/search.html"})
     public String searchPage(@RequestParam Map<String, Object> params, HttpServletRequest request) {
@@ -41,7 +41,7 @@ public class GoodsController {
         //封装分类数据
         if (params.containsKey("goodsCategoryId") && !StringUtils.isEmpty(params.get("goodsCategoryId") + "")) {
             Long categoryId = Long.valueOf(params.get("goodsCategoryId") + "");
-            SearchPageCategoryVO searchPageCategoryVO = newBeeMallCategoryService.getCategoriesForSearch(categoryId);
+            SearchPageCategoryVO searchPageCategoryVO = siJieMallCategoryService.getCategoriesForSearch(categoryId);
             if (searchPageCategoryVO != null) {
                 request.setAttribute("goodsCategoryId", categoryId);
                 request.setAttribute("searchPageCategoryVO", searchPageCategoryVO);
@@ -60,7 +60,7 @@ public class GoodsController {
         params.put("keyword", keyword);
         //封装商品数据
         PageQueryUtil pageUtil = new PageQueryUtil(params);
-        request.setAttribute("pageResult", newBeeMallGoodsService.searchNewBeeMallGoods(pageUtil));
+        request.setAttribute("pageResult", siJieMallGoodsService.searchSiJieMallGoods(pageUtil));
         return "mall/search";
     }
 
@@ -69,11 +69,11 @@ public class GoodsController {
         if (goodsId < 1) {
             return "error/error_5xx";
         }
-        NewBeeMallGoods goods = newBeeMallGoodsService.getNewBeeMallGoodsById(goodsId);
+        SiJieMallGoods goods = siJieMallGoodsService.getSiJieMallGoodsById(goodsId);
         if (goods == null) {
             return "error/error_404";
         }
-        NewBeeMallGoodsDetailVO goodsDetailVO = new NewBeeMallGoodsDetailVO();
+        SiJieMallGoodsDetailVO goodsDetailVO = new SiJieMallGoodsDetailVO();
         BeanUtil.copyProperties(goods, goodsDetailVO);
         goodsDetailVO.setGoodsCarouselList(goods.getGoodsCarousel().split(","));
         request.setAttribute("goodsDetail", goodsDetailVO);

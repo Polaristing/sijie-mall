@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.MallUserMapper">
-    <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.MallUser">
+<mapper namespace="com.sijie.mall.dao.MallUserMapper">
+    <resultMap id="BaseResultMap" type="com.sijie.mall.entity.MallUser">
         <id column="user_id" jdbcType="BIGINT" property="userId"/>
         <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
         <result column="login_name" jdbcType="VARCHAR" property="loginName"/>
@@ -61,7 +61,7 @@
     update tb_newbee_mall_user set is_deleted = 1
     where user_id = #{userId,jdbcType=BIGINT} and is_deleted = 0
   </update>
-    <insert id="insert" parameterType="ltd.newbee.mall.entity.MallUser">
+    <insert id="insert" parameterType="com.sijie.mall.entity.MallUser">
     insert into tb_newbee_mall_user (user_id, nick_name, login_name, 
       password_md5, introduce_sign, address, 
       is_deleted, locked_flag, create_time
@@ -71,7 +71,7 @@
       #{isDeleted,jdbcType=TINYINT}, #{lockedFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-    <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.MallUser">
+    <insert id="insertSelective" parameterType="com.sijie.mall.entity.MallUser">
         insert into tb_newbee_mall_user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userId != null">
@@ -132,7 +132,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.MallUser">
+    <update id="updateByPrimaryKeySelective" parameterType="com.sijie.mall.entity.MallUser">
         update tb_newbee_mall_user
         <set>
             <if test="nickName != null">
@@ -162,7 +162,7 @@
         </set>
         where user_id = #{userId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.MallUser">
+    <update id="updateByPrimaryKey" parameterType="com.sijie.mall.entity.MallUser">
     update tb_newbee_mall_user
     set nick_name = #{nickName,jdbcType=VARCHAR},
       login_name = #{loginName,jdbcType=VARCHAR},

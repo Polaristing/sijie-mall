@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.GoodsCategoryMapper">
-    <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.GoodsCategory">
+<mapper namespace="com.sijie.mall.dao.GoodsCategoryMapper">
+    <resultMap id="BaseResultMap" type="com.sijie.mall.entity.GoodsCategory">
         <id column="category_id" jdbcType="BIGINT" property="categoryId"/>
         <result column="category_level" jdbcType="TINYINT" property="categoryLevel"/>
         <result column="parent_id" jdbcType="BIGINT" property="parentId"/>
@@ -86,7 +86,7 @@
             #{id}
         </foreach>
     </update>
-    <insert id="insert" parameterType="ltd.newbee.mall.entity.GoodsCategory">
+    <insert id="insert" parameterType="com.sijie.mall.entity.GoodsCategory">
     insert into tb_newbee_mall_goods_category (category_id, category_level, parent_id, 
       category_name, category_rank, is_deleted, 
       create_time, create_user, update_time, 
@@ -96,7 +96,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
       #{updateUser,jdbcType=INTEGER})
   </insert>
-    <insert id="insertSelective" parameterType="ltd.newbee.mall.entity.GoodsCategory">
+    <insert id="insertSelective" parameterType="com.sijie.mall.entity.GoodsCategory">
         insert into tb_newbee_mall_goods_category
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="categoryId != null">
@@ -163,7 +163,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="ltd.newbee.mall.entity.GoodsCategory">
+    <update id="updateByPrimaryKeySelective" parameterType="com.sijie.mall.entity.GoodsCategory">
         update tb_newbee_mall_goods_category
         <set>
             <if test="categoryLevel != null">
@@ -196,7 +196,7 @@
         </set>
         where category_id = #{categoryId,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="ltd.newbee.mall.entity.GoodsCategory">
+    <update id="updateByPrimaryKey" parameterType="com.sijie.mall.entity.GoodsCategory">
     update tb_newbee_mall_goods_category
     set category_level = #{categoryLevel,jdbcType=TINYINT},
       parent_id = #{parentId,jdbcType=BIGINT},
